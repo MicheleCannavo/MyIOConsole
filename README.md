@@ -1,5 +1,9 @@
-# 1. M
+# 1. MyIOConsole
 
+Questa piccola libreriua è stata costrutita per gestire gli aspetti legati agli Input/Output da console.
+
+## UML
+```plantuml
 @startuml
 class util.console.Input {
 - <<Create>> Input()
@@ -18,4 +22,8 @@ class util.console.Input {
 + {static} void clrscr()
   }
   @enduml
+```
 
+## Struttura
+
+La libreria è composta da un solo _package_ contenenti 3 classi:
