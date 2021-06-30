@@ -25,62 +25,62 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * Classe per gestione degli INPUT.
+ * Class for INPUT management.
  *
- * @author Michele Cannavo'
- * @version 1.1.0
+ * @author    Michele Cannavo'
+ * @version   1.1.0
  * @copyright © 2021 - Cannavo' Michele
- * @license LGPL 3.0
- * @date 10/06/2021
- * @since 1.0.0
+ * @license   LGPL 3.0
+ * @date      10/06/2021
+ * @since     1.0.0
  */
 public final class Input {
   private static final Logger LOGGER =
     LoggerFactory.getLogger(Input.class);
 
   /**
-   * Classe statica.
+   * Static class.
    */
   private Input() {
   }
 
   /**
-   * Previa stampa di un messaggio, preleva dalla console
-   * o dal System.in, se non dovesse esserci una console connessa,
-   * un input come stringa e lo restituisce al chiamante.
+   * After printing a message, fetch from console or System.in,
+   * if there shouldn't be a console connected,
+   * an input as a string and returns it to the caller.
    *
-   * @param   format  l formato dalla stringa per il messaggio.
-   * @param   args    Gli argomenti del messaggio.
+   * @param   format  the format from the string for the message.
+   * @param   args    The topics of the message.
    *
-   * @return  L'input  immesso sotto forma di stringa.
+   * @return  The input entered as a string.
    *
    * @since   1.0.0
    */
   public static String readLine(String format, Object... args) {
+    Scanner scanner = new Scanner(new InputStreamReader(System.in));
     try {
       return System.console().readLine(format, args);
     } catch (NullPointerException excep1) {
-      try (Scanner sc = new Scanner(new InputStreamReader(System.in))) {
         System.out.printf(format, args);
-        return sc.nextLine();
-      }
+        return scanner.nextLine();
     }
   }
 
 
   /**
-   * Previa stampa del messaggio: "password: ".
-   * Permette l' immissione da util.console di una password
-   * come avviene nelle console linux, ovvero senza mostrare i caratteri sul video.
-   * Se non dovesse esserci una console connessa,
-   * l' input avviene come per una stringa normale.
+   * After printing the message: "password: ".
+   * Allows entry of a password from console
+   * as it happens in linux consoles,
+   * that is, without showing the characters on the video.
+   * If there is no console connected,
+   * the input is done as for a normal string.
    *
    * @return L'input immesso sotto forma di stringa.
    *
    * @since 1.0.0
    */
   public static String readPassword() {
-    String message = "Immetti password: ";
+    String message = "Enter password: ";
     try {
       return Arrays.toString(System.console().readPassword(message));
     } catch (NullPointerException ex) {

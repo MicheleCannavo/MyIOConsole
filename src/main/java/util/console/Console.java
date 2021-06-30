@@ -23,10 +23,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * Classe per gestione dei metodi.
+ * Method management class.
  *
- * @brief Classe per gestione dei metodi
- * per le console.
+ * @brief Class for managing methods for consoles.
  *
  * @author    Michele Cannavo'
  * @copyright ©2021 - Michele Cannavo'
@@ -50,13 +49,13 @@ public final class Console {
    */
   private Console() {  }
 
-  /** Variabile pr il LOG */
+  /** Variable for the LOG */
   private static final Logger LOGGER  =
     LoggerFactory.getLogger(Console.class);
 
   /**
-   * Metodo che "pulisce" la console.
-   * In caso di errore termina il Thread() attivo.
+   * Method that "cleans" the console.
+   * In the event of an error, the active Thread () terminates.
    *
    * @since 1.0.0
    */

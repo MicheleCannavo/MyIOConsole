@@ -78,7 +78,7 @@ public class TestOutput {
     @Test
     public void printNotValid() {
         Output.printNotValid();
-        assertEquals("input non valido" + System.lineSeparator(),
+        assertEquals("invalid input" + System.lineSeparator(),
                 systemOutRule.getLog());
     }
 
@@ -89,10 +89,10 @@ public class TestOutput {
      */
     @Test
     public void printIsPresent() {
-        String str = "oggetto";
+        String str = "subject matter";
         Output.printIsPresent(str);
 
-        assertEquals(str + " e' gia' presente" + System.lineSeparator(),
+        assertEquals(str + " is already present" + System.lineSeparator(),
                 systemOutRule.getLog());
     }
 }

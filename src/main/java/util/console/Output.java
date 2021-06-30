@@ -24,8 +24,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 
 /**
- * Classe per gestione degli OUTPUT
- * per lo SYSTEM_OUT.
+ * Class for OUTPUT management.
  *
  * @author    Michele Cannavo'
  * @copyright © 2021 - Cannavo' Michele
@@ -39,20 +38,20 @@ import java.util.Arrays;
  */
 public final class Output {
 
-  private static Logger LOGGER  =
+  private static final Logger LOGGER  =
     LoggerFactory.getLogger(Output.class);
 
   /**
-   * Classe statica.
+   * Static class.
    */
   private Output() {
   }
 
   /**
-   * Stampa una stringa senza lineSeparator() finale.
+   * Print a string with lineSeparator().
    *
-   * @param format Il formato della stringa.
-   * @param args   Gli argomenti della stringa.
+   * @param format The format of the string.
+   * @param args   The arguments of the string.
    *
    * @since 1.0.0
    */
@@ -61,18 +60,18 @@ public final class Output {
     try{
       System.console().printf(format, args);
     } catch(NullPointerException ex) {
-      LOGGER.warn("Console not found" );
+      LOGGER.warn("Console not found. System.out will be used" );
       System.out.printf(format, Arrays.toString(args));
     }finally {
-      LOGGER.debug(format, args );
+      LOGGER.debug("The entered value is: %s", args );
     }
   }
 
   /**
-   * Stampa una stringa con lineSeparator() finale.
+   * Print a string with lineSeparator().
    *
-   * @param format Il formato della stringa.
-   * @param args   Gli argomenti della stringa.
+   * @param format The format of the string.
+   * @param args   The arguments of the string.
    *
    * @since 1.0.0
    */
@@ -81,25 +80,25 @@ public final class Output {
   }
 
   /**
-   * Stampa la stringa "input non valido".
-   * Dopo va a capo.
+   * Print the string "invalid input".
+   * It then generates a newline.
    *
    * @since 1.1.0
    */
   public static void printNotValid() {
-    String notValid = "input non valido";
+    String notValid = "invalid input";
     printnlLine(notValid);
   }
 
   /**
-   * Stampa la stringa "item + " è già presente".
-   * Dopo va a capo.
+   * Print the string "_item_ is already present".
+   * It then generates a newline.
    *
-   * @param item l' item già presente.
+   * @param item the item already present.
    * @since 1.1.0
    */
   public static void printIsPresent(String item) {
-    String notValid = item + " e' gia' presente";
+    String notValid = item + " is already present";
     printnlLine(notValid);
   }
 }
