@@ -8,8 +8,9 @@ public class App {
   public static void main(String[] args) {
     Console.clrscr();
     Output.printIsPresent("df");
-    Input.readLine("uno");
-    Input.readLine("due");
+    var e = Input.readLine("uno");
+    Console.clrscr();
+    Input.readLine("due --"+e);
 
   }
 }
