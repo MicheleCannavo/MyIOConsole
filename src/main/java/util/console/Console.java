@@ -66,7 +66,7 @@ public final class Console {
       if(System.getProperty("os.name").contains("Windows")) {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
       } else {
-        Runtime.getRuntime().exec("clear");
+        Runtime.getRuntime().exec("/usr/bin/clear");
       }
     } catch(IOException | InterruptedException | NullPointerException  ex) {
       LOGGER.warn("Error clearing the console: ".concat(ex.getMessage()));
